@@ -21,7 +21,7 @@ export const metadata = {
   openGraph: {
     title: "TaskFerry — Your reminders, on the Mac you’re using",
     description:
-      "Keep Apple Reminders on your personal Mac. Read, add, edit, and complete them from another Mac through a private connection you control.",
+      "When another Mac—like a work computer—can’t use your personal iCloud, TaskFerry lets you read, add, edit, and complete your Apple Reminders there through a private connection you control.",
     url: siteUrl,
     siteName: "TaskFerry",
     type: "website",
@@ -56,4 +56,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-

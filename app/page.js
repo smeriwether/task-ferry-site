@@ -140,9 +140,9 @@ export default function Home() {
                 <span>On the Mac you’re using.</span>
               </h1>
               <p className="hero-lede">
-                Keep Apple Reminders on your personal Mac. Read, add, edit, and
-                complete them from another Mac through a private connection you
-                control.
+                When another Mac—like a work computer—can’t use your personal
+                iCloud, TaskFerry lets you read, add, edit, and complete your
+                Apple Reminders there through a private connection you control.
               </p>
 
               <div className="hero-actions">
@@ -248,7 +248,7 @@ export default function Home() {
             <div className="section-heading">
               <span className="kicker">One app. Two roles.</span>
               <h2>
-                Your other Mac can’t use your personal iCloud. TaskFerry
+                When your other Mac can’t use your personal iCloud. TaskFerry
                 bridges the gap.
               </h2>
               <p>
