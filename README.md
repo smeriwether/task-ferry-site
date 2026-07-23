@@ -21,5 +21,14 @@ npm start
 
 The deployable Vinext bundle is written to `dist/`.
 
+## Cloudflare Workers deployment
+
+```sh
+npm run deploy
+```
+
+Wrangler deploys the site as the `task-ferry-site` Worker and provisions
+`taskferry.merimerimeri.com` as its custom domain.
+
 The stable download button points to the latest signed `TaskFerry.dmg` GitHub
 release asset.
