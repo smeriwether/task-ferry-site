@@ -247,15 +247,18 @@ export default function Home() {
           <section id="how-it-works" className="route-section section-pad">
             <div className="section-heading">
               <span className="kicker">One app. Two roles.</span>
-              <h2>One Mac stays on as your bridge.</h2>
+              <h2>
+                Your other Mac can’t use your personal iCloud. TaskFerry
+                bridges the gap.
+              </h2>
               <p>
-                TaskFerry requires two Macs. One stays powered on and connected
-                to Apple Reminders as the bridge; the Mac you’re using connects
-                back to it through your private Cloudflare route.
+                Keep one personal Mac signed in to iCloud and running TaskFerry
+                as the bridge. Then use your reminders from another Mac—like a
+                work computer where you can’t sign in to your personal iCloud.
               </p>
               <div className="bridge-requirement">
                 <span>Required</span>
-                One Mac must remain available to act as the bridge.
+                One personal Mac must stay on and connected as the bridge.
               </div>
             </div>
 
