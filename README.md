@@ -16,8 +16,9 @@ Open `http://localhost:3000`.
 
 ```sh
 npm run build
-npm start
 ```
+
+The deployable static site is written to `dist/`.
 
 The stable download button points to the latest signed `TaskFerry.dmg` GitHub
 release asset.
