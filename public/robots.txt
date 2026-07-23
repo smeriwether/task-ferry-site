@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://taskferry.merimerimeri.com/sitemap.xml
+
