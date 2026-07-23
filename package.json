@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:social-image": "node scripts/generate-social-image.mjs",
+    "verify:seo": "node scripts/verify-seo.mjs",
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",

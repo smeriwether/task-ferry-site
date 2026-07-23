@@ -1,6 +1,34 @@
 const downloadUrl =
   "https://github.com/smeriwether/task-ferry/releases/latest/download/TaskFerry.dmg";
 const sourceUrl = "https://github.com/smeriwether/task-ferry";
+const releaseUrl =
+  "https://github.com/smeriwether/task-ferry/releases/tag/v0.1.5";
+const siteUrl = "https://taskferry.merimerimeri.com";
+const publisherUrl = "https://merimerimeri.com/";
+const socialImageUrl = `${siteUrl}/taskferry-social.png`;
+
+const faqItems = [
+  {
+    question: "What do I need to use TaskFerry?",
+    answer:
+      "Two Macs running macOS 14 or newer, Apple Reminders on the bridge Mac, and your own Cloudflare account with an active domain and Zero Trust enabled. Cloudflare’s free plan is sufficient."
+  },
+  {
+    question: "Does TaskFerry store my reminders?",
+    answer:
+      "No. Every change is applied to Apple Reminders through EventKit, followed by a fresh snapshot. There is no TaskFerry task database to sync or reconcile."
+  },
+  {
+    question: "Is it available on the Mac App Store?",
+    answer:
+      "No. TaskFerry is a direct download. The DMG and app are signed with a Developer ID and notarized by Apple, and the app uses signed automatic updates."
+  },
+  {
+    question: "What reminder features are supported?",
+    answer:
+      "Writable lists; incomplete reminders; date-only and timed due dates; Today and Tomorrow; and quick entry. Notes, recurrence, tags, attachments, and completed-history browsing are outside the app’s intentionally focused scope."
+  }
+];
 
 function ArrowDownIcon() {
   return (
@@ -53,49 +81,92 @@ function StatusDot({ coral = false }) {
 }
 
 export default function Home() {
-  const softwareSchema = {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "TaskFerry",
-    description:
-      "A private Mac app that carries Apple Reminders between a personal Mac and another Mac.",
-    applicationCategory: "UtilitiesApplication",
-    operatingSystem: "macOS 14 or newer",
-    downloadUrl,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD"
-    }
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
+    "@graph": [
       {
-        "@type": "Question",
-        name: "Does TaskFerry store my reminders?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. Apple Reminders remains the source of truth. TaskFerry has no hosted reminder database and no account system."
+        "@type": "Organization",
+        "@id": `${publisherUrl}#organization`,
+        name: "MeriMeriMeri Software LLC",
+        url: publisherUrl,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/icon-1024.png`,
+          width: 1024,
+          height: 1024
         }
       },
       {
-        "@type": "Question",
-        name: "Is TaskFerry available on the Mac App Store?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. TaskFerry is distributed directly as a signed and notarized DMG and includes signed automatic updates."
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "TaskFerry",
+        alternateName: "Task Ferry",
+        description:
+          "Use Apple Reminders on a work Mac that can’t sign in to your personal iCloud.",
+        inLanguage: "en-US",
+        publisher: {
+          "@id": `${publisherUrl}#organization`
         }
       },
       {
-        "@type": "Question",
-        name: "What do I need to use TaskFerry?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Two Macs running macOS 14 or newer, Apple Reminders on the bridge Mac, and your own Cloudflare account with an active domain and Zero Trust enabled."
+        "@type": "SoftwareApplication",
+        "@id": `${siteUrl}/#software`,
+        name: "TaskFerry",
+        alternateName: "Task Ferry",
+        url: siteUrl,
+        description:
+          "A free, private macOS bridge that lets you use Apple Reminders on a work Mac without signing in to your personal iCloud.",
+        image: socialImageUrl,
+        applicationCategory: "UtilitiesApplication",
+        applicationSubCategory: "Productivity",
+        operatingSystem: "macOS 14 or newer",
+        softwareVersion: "0.1.5",
+        softwareRequirements:
+          "Two Macs running macOS 14 or newer and a Cloudflare account.",
+        isAccessibleForFree: true,
+        downloadUrl,
+        installUrl: downloadUrl,
+        releaseNotes: releaseUrl,
+        license: `${sourceUrl}/blob/main/LICENSE`,
+        sameAs: [sourceUrl],
+        publisher: {
+          "@id": `${publisherUrl}#organization`
+        },
+        mainEntityOfPage: {
+          "@id": `${siteUrl}/#website`
+        },
+        featureList: [
+          "Read Apple Reminders from another Mac",
+          "Create, edit, complete, and delete reminders",
+          "Today, Tomorrow, and reminder-list views",
+          "Fast menu-bar reminder entry",
+          "Private Cloudflare connection",
+          "No hosted TaskFerry reminder database"
+        ],
+        offers: {
+          "@type": "Offer",
+          price: 0,
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: downloadUrl
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${siteUrl}/#faq`,
+        url: `${siteUrl}/#faq`,
+        isPartOf: {
+          "@id": `${siteUrl}/#website`
+        },
+        mainEntity: faqItems.map(({ question, answer }) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: answer
+          }
+        }))
       }
     ]
   };
@@ -104,11 +175,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
       <div className="site-shell">
@@ -136,7 +203,7 @@ export default function Home() {
                 A private bridge for Apple Reminders
               </div>
               <h1>
-                Your reminders.
+                Apple Reminders.
                 <span>On the Mac you’re using.</span>
               </h1>
               <p className="hero-lede">
@@ -350,47 +417,19 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="faq-section section-pad">
+          <section id="faq" className="faq-section section-pad">
             <div className="section-heading">
               <span className="kicker">A few useful details</span>
               <h2>Before you set sail.</h2>
             </div>
 
             <div className="faq-list">
-              <details>
-                <summary>What do I need to use TaskFerry?</summary>
-                <p>
-                  Two Macs running macOS 14 or newer, Apple Reminders on the
-                  bridge Mac, and your own Cloudflare account with an active
-                  domain and Zero Trust enabled. Cloudflare’s free plan is
-                  sufficient.
-                </p>
-              </details>
-              <details>
-                <summary>Does TaskFerry store my reminders?</summary>
-                <p>
-                  No. Every change is applied to Apple Reminders through
-                  EventKit, followed by a fresh snapshot. There is no TaskFerry
-                  task database to sync or reconcile.
-                </p>
-              </details>
-              <details>
-                <summary>Is it available on the Mac App Store?</summary>
-                <p>
-                  No. TaskFerry is a direct download. The DMG and app are signed
-                  with a Developer ID and notarized by Apple, and the app uses
-                  signed automatic updates.
-                </p>
-              </details>
-              <details>
-                <summary>What reminder features are supported?</summary>
-                <p>
-                  Writable lists; incomplete reminders; date-only and timed due
-                  dates; Today and Tomorrow; and quick entry. Notes, recurrence,
-                  tags, attachments, and completed-history browsing are outside
-                  the app’s intentionally focused scope.
-                </p>
-              </details>
+              {faqItems.map(({ question, answer }) => (
+                <details key={question}>
+                  <summary>{question}</summary>
+                  <p>{answer}</p>
+                </details>
+              ))}
             </div>
           </section>
 

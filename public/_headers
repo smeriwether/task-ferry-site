@@ -1,0 +1,17 @@
+/favicon-16.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon-32.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/icon-1024.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/taskferry-social.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
