@@ -57,7 +57,10 @@ assert(openGraphImage === `${expectedCanonical}/taskferry-social.png`, "Unexpect
 assert(twitterCard === "summary_large_image", "Twitter card is not summary_large_image");
 assert(googleBot.includes("max-image-preview:large"), "Googlebot is not allowed large image previews");
 assert(h1Count === 1, `Expected one H1, found ${h1Count}`);
-assert(/<h1>Apple Reminders\./.test(html), "H1 does not lead with Apple Reminders");
+assert(
+  /<h1>Your personal Apple Reminders\.<span>On your work Mac\.<\/span><\/h1>/.test(html),
+  "H1 does not state the personal-to-work Mac value proposition"
+);
 assert(
   /<link rel="icon" href="\/icon-1024\.png" sizes="1024x1024"/.test(html),
   "Missing high-resolution favicon declaration"

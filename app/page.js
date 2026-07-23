@@ -203,8 +203,8 @@ export default function Home() {
                 A private bridge for Apple Reminders
               </div>
               <h1>
-                Apple Reminders.
-                <span>On the Mac you’re using.</span>
+                Your personal Apple Reminders.
+                <span>On your work Mac.</span>
               </h1>
               <p className="hero-lede">
                 When another Mac—like a work computer—can’t use your personal
