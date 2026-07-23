@@ -120,7 +120,6 @@ export default function Home() {
 
           <nav className="nav-links" aria-label="Main navigation">
             <a href="#how-it-works">How it works</a>
-            <a href="#features">Features</a>
             <a href="#privacy">Privacy</a>
           </nav>
 
@@ -245,38 +244,36 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="trust-row" aria-label="TaskFerry highlights">
-            <div><span>◉</span> Apple Reminders stays the source of truth</div>
-            <div><span>⌁</span> Your own Cloudflare connection</div>
-            <div><span>◇</span> Secrets stay in macOS Keychain</div>
-            <div><span>↻</span> Signed automatic updates</div>
-          </section>
-
           <section id="how-it-works" className="route-section section-pad">
             <div className="section-heading">
               <span className="kicker">One app. Two roles.</span>
-              <h2>A short route between your Macs.</h2>
+              <h2>One Mac stays on as your bridge.</h2>
               <p>
-                Install the same TaskFerry app on both Macs. Choose which one
-                holds your Reminders, then connect the other in a few guided
-                steps.
+                TaskFerry requires two Macs. One stays powered on and connected
+                to Apple Reminders as the bridge; the Mac you’re using connects
+                back to it through your private Cloudflare route.
               </p>
+              <div className="bridge-requirement">
+                <span>Required</span>
+                One Mac must remain available to act as the bridge.
+              </div>
             </div>
 
             <div className="role-grid">
               <article className="role-card role-card-blue">
                 <div className="role-number">01</div>
                 <div className="role-icon" aria-hidden="true">⌂</div>
-                <span className="role-label">Home port</span>
-                <h3>Share this Mac’s reminders</h3>
+                <span className="role-label">Required bridge Mac</span>
+                <h3>Keep one Mac on as the bridge</h3>
                 <p>
-                  Your personal Mac talks to Apple Reminders through native
-                  EventKit and keeps its listener on the Mac itself.
+                  Choose the Mac that already has your Apple Reminders. It
+                  needs to stay powered on and connected so TaskFerry can serve
+                  fresh reminders to your other Mac.
                 </p>
                 <ul>
                   <li><CheckIcon /> Apple Reminders permission</li>
+                  <li><CheckIcon /> Stays powered on and connected</li>
                   <li><CheckIcon /> Runs quietly in the background</li>
-                  <li><CheckIcon /> No second reminders database</li>
                 </ul>
               </article>
 
@@ -293,11 +290,12 @@ export default function Home() {
               <article className="role-card role-card-coral">
                 <div className="role-number">02</div>
                 <div className="role-icon" aria-hidden="true">⌘</div>
-                <span className="role-label">Other shore</span>
-                <h3>Connect to your bridge Mac</h3>
+                <span className="role-label">Everyday Mac</span>
+                <h3>Connect from your other Mac</h3>
                 <p>
-                  Paste one connection code on the second Mac. TaskFerry brings
-                  over a fresh, authoritative view of your reminders.
+                  Install TaskFerry on the Mac you’re using, paste the
+                  connection code, and connect back to the bridge Mac for a
+                  fresh, authoritative view.
                 </p>
                 <ul>
                   <li><CheckIcon /> Today, Tomorrow, and lists</li>
@@ -305,86 +303,6 @@ export default function Home() {
                   <li><CheckIcon /> Fast menu-bar capture</li>
                 </ul>
               </article>
-            </div>
-          </section>
-
-          <section id="features" className="features-section section-pad">
-            <div className="section-heading section-heading-left">
-              <span className="kicker">Small app. Useful cargo.</span>
-              <h2>Everything you need to keep the day moving.</h2>
-            </div>
-
-            <div className="feature-showcase">
-              <div className="screenshot-stage">
-                <div className="screenshot-window">
-                  <img
-                    src="/assets/task-ferry-main.png"
-                    alt="TaskFerry showing Today, Tomorrow, and three reminders"
-                    width="400"
-                    height="568"
-                  />
-                </div>
-                <div className="screenshot-caption">
-                  <StatusDot />
-                  Synced from Apple Reminders
-                </div>
-              </div>
-
-              <div className="feature-list">
-                <article>
-                  <span className="feature-index">A</span>
-                  <div>
-                    <h3>Know what’s next</h3>
-                    <p>
-                      Focused Today and Tomorrow views keep overdue work,
-                      date-only reminders, and timed due dates easy to scan.
-                    </p>
-                  </div>
-                </article>
-                <article>
-                  <span className="feature-index">B</span>
-                  <div>
-                    <h3>Write back, not just read</h3>
-                    <p>
-                      Create and rename lists. Add, edit, complete, or delete
-                      incomplete reminders from either Mac.
-                    </p>
-                  </div>
-                </article>
-                <article>
-                  <span className="feature-index">C</span>
-                  <div>
-                    <h3>Capture without breaking stride</h3>
-                    <p>
-                      The remote Mac gets a compact menu-bar form for a quick
-                      thought, with list and due-date controls built in.
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-
-            <div className="quick-feature">
-              <div className="quick-feature-copy">
-                <span className="kicker kicker-coral">From thought to list</span>
-                <h3>Quick reminders, right from the menu bar.</h3>
-                <p>
-                  Pick a list, choose None, Today, or Tomorrow, and get back to
-                  what you were doing. The reminder is written directly to
-                  Apple Reminders on the bridge Mac.
-                </p>
-              </div>
-              <div className="quick-screenshot-wrap">
-                <div className="mini-menubar">
-                  <span>●</span><span>Wi-Fi</span><span>10:42 AM</span>
-                </div>
-                <img
-                  src="/assets/task-ferry-quick-entry.png"
-                  alt="TaskFerry Quick Reminder menu with list and due-date controls"
-                  width="340"
-                  height="197"
-                />
-              </div>
             </div>
           </section>
 
